@@ -1,0 +1,7 @@
+# for mixinsdk
+pyjwt
+cryptography
+pynacl
+httpx
+websockets
+dacite
