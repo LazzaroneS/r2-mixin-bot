@@ -27,23 +27,3 @@ def get_mixin_group_profile(msguser: MessageUser, group_conv_id):
         raise ValueError(f"Not a group conversation: {group_conv_id}")
     msguser.group_owner_id = data.get("creator_id")
     msguser.group_name = data.get("name")
-
-
-def query_mixin_asset_by_symbol(name: str):
-    rsp = mixin_client.noauth.api.network.search_asset_by_symbol(name)
-    assets = rsp.get("data", [])
-    # render
-    markdown = f"Search asset by symbol: {name}\n"
-    markdown += "\n|Icon|Symbol|Name|Asset ID|Price in USD|Capitalization\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
-    for item in assets:
-        icon_url = item.get("icon_url")
-        markdown += f"|![]({icon_url})"
-        # markdown += f'|<img src="{icon_url}" width="25" height="25">'
-        markdown += f"|{item.get('symbol')}|{item.get('name')}|{item.get('asset_id')}|"
-        markdown += f"{item.get('price_usd')}|{item.get('capitalization')}|\n"
-
-    markdown += "\nRaw data\n"
-    markdown += "```\n" + json.dumps(assets, indent=2) + "\n```\n"
-    markdown += f"Data from: {mixin_client.http.http.api_base}"
-
-    return markdown

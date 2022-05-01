@@ -102,7 +102,7 @@ async def handle(message):
                 if msg_text.startswith(":"):  # consider it is admin command
                     await from_operator.handle_command(msguser, msgview)
                 else:
-                    await from_user.handle_command(msguser, msgview)
+                    await from_user.handle_text(msguser, msgview)
                 await mixin_client.blaze.echo(msgview.message_id)
                 return
 

@@ -166,20 +166,20 @@ def pack_button(label, action, color) -> dict:
     Args:
     - label: button display text
     - action: URI, mixin schema or link, e.g. 'https://mixin.one'
-    - color: hex color string, e.g. '#d53120'
+    - color: hex color string, e.g. 'd53120'
 
     Return:
         payload:dict
     """
 
-    payload = {"label": label, "action": action, "color": color}
+    payload = {"label": label, "action": action, "color": "#" + color}
     return payload
 
 
 def pack_button_group_data(buttons: Union[Dict, List[Dict]]) -> MessageDataObject:
     """
     Args:
-        - buttons, list of button payload
+        - buttons, list of button payload. maximum 6 buttons
 
     Return (payload, b64encoded_data, category)
     """

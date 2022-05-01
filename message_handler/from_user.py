@@ -1,13 +1,11 @@
-import re
-import traceback
-
 from mixinsdk.types.message import (
     MessageView,
-    pack_button_group_data,
     pack_post_data,
     pack_text_data,
+    pack_message,
 )
-from mixinsdk.types.transfer import TransferView
+
+
 from thisbot.init import (
     logger,
     mixin_bot_config,
@@ -15,21 +13,25 @@ from thisbot.init import (
     operation,
 )
 from thisbot.types import MessageUser
-from thisbot.constants import USER_TYPES, APP_NAME
-from . import methods
+from thisbot.constants import APP_NAME
+import basic_reply
 
-from . import reply_template
+import commander
 
 
 async def send_text_to_user(text, conversation_id, quote_message_id=None):
     await mixin_client.blaze.send_message(
-        pack_text_data(text), conversation_id, quote_message_id=quote_message_id
+        pack_message(
+            pack_text_data(text), conversation_id, quote_message_id=quote_message_id
+        )
     )
 
 
 async def send_post_to_user(text, conversation_id, quote_message_id=None):
     await mixin_client.blaze.send_message(
-        pack_post_data(text), conversation_id, quote_message_id=quote_message_id
+        pack_message(
+            pack_post_data(text), conversation_id, quote_message_id=quote_message_id
+        )
     )
 
 
@@ -41,61 +43,27 @@ async def notice_operator(text):
     )
 
 
-async def handle_command(msguser: MessageUser, msgview: MessageView):
+async def handle_text(msguser: MessageUser, msgview: MessageView):
+    # limit size
+    if len(msgview.data_decoded) > 8192:
+        await send_text_to_user("✗ Command too long", msgview.conversation_id)
+        return
+
     msg_text = msgview.data_decoded
 
-    """ ===== Process command ===== """
-
     # clean text command
-    cmd = msg_text.lower().strip()
+    cmd = msg_text.strip()
     cmd = cmd.lstrip("/")
     sign_str = "@" + mixin_bot_config.mixin_id + " "
     cmd = cmd.replace(sign_str, "")
 
-    logger.debug(f"user command: {cmd}")
+    logger.info(f"user command: {cmd}")
 
-    if cmd in ["hi", "hello", "你好"]:
-        text = reply_template.get_welcome()
-        await send_text_to_user(text, msgview.conversation_id)
+    ctx = commander.CommandContext(msguser, msgview)
+    await commander.handle(ctx, cmd)
 
-        btn = reply_template.get_button_of_help(msguser)
-        await mixin_client.blaze.send_message(
-            pack_button_group_data(btn), msgview.conversation_id
-        )
-
-        return
-
-    if cmd in ["help", "帮助"]:
-        text = reply_template.get_help_doc()
-        await send_post_to_user(text, msgview.conversation_id)
-        return
-
-    if re.match(r"^user\b", cmd):
-        await send_text_to_user(
-            f"Your mixin user id: {msgview.user_id}", msgview.conversation_id
-        )
-        return
-    if re.match(r"^conv\b", cmd):
-        await send_text_to_user(
-            f"This conversation id: {msgview.conversation_id}", msgview.conversation_id
-        )
-        return
-
-    if re.match(r"^asset ", cmd):
-        symbol = cmd.split(" ")[1]
-        markdown = methods.query_mixin_asset_by_symbol(symbol)
-        await send_post_to_user(markdown, msgview.conversation_id)
-        return
-
-    if cmd in ["oogway", "master"]:
-        await send_text_to_user(reply_template.master_pearls(), msgview.conversation_id)
-        return
-
-    # else
-    text = reply_template.get_unknown()
-    await send_text_to_user(
-        text, msgview.conversation_id, quote_message_id=msgview.message_id
-    )
+    for msg in ctx.replying_msgs:
+        await mixin_client.blaze.send_message(msg)
 
 
 async def handle_media(msguser: MessageUser, msgview: MessageView):
@@ -113,7 +81,7 @@ async def handle_conversation_actions(msgview: MessageView):
     if action == "ADD":
         logger.info(f"被加入了群聊会话: {msgview.conversation_id}")
 
-        text = reply_template.get_welcome()
+        text = basic_reply.get_welcome()
         await send_text_to_user(text, msgview.conversation_id)
 
         return

@@ -27,7 +27,7 @@ logger.setLevel(logging.INFO)
 
 
 # --- operation
-operation_config = json.load(open("./data/operation-config.json"))
+operation_config = json.load(open("../config/operation.json"))
 operation = OperationObject()
 operation.operator_user_id = operation_config.get("operator", {}).get("user_id")
 operation.operator_mixin_id = operation_config.get("operator", {}).get("mixin_id")
@@ -35,8 +35,8 @@ operation.notice_conv_id = operation_config.get("notice", {}).get("conversation_
 
 
 # --- mixin bot
-# mixin_bot_config = BotConfig.from_file("./data/bot-config-oogway.json")
-mixin_bot_config = BotConfig.from_file("./data/bot-config-test.json")
+mixin_bot_config = BotConfig.from_file("../config/bot-oogway.json")
+# mixin_bot_config = BotConfig.from_file("../config/bot-test.json")
 mixin_client = MixinBotClient()
 mixin_client.http = HttpClient_BotAuth(mixin_bot_config)
 mixin_client.noauth = HttpClient_WithoutAuth()

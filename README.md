@@ -4,12 +4,11 @@
 
 ## ❇️ Features
 
-- Supported query types: Current conversation; Mixin assets
+- Supported query types: ✓ Current conversation, ✓ Mixin assets, ✓ Wikipedia
+- MUI text command support action + arguments + options
 
 ## 🚧 TODO
 
-- [ ] Support for query **Wikipedia** entries
-- [ ] Like CLI syntax , support for command, arguments, options and pipeline
 - [ ] Support for query Mixin network top assets
 - [ ] ... more query types
 

@@ -1,1 +1,1 @@
-from .main import handle, error_callback
+from .index import handle, error_callback

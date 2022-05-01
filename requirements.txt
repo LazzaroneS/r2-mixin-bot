@@ -5,3 +5,7 @@ pynacl
 httpx
 websockets
 dacite
+
+
+# for querier
+markdownify

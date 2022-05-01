@@ -11,7 +11,6 @@ from concurrent.futures import ThreadPoolExecutor
 import websockets
 
 from ..constants import API_BASE_URLS
-from ..types.message import pack_message
 from ..utils import get_conversation_id_of_two_users
 from ._sign import sign_authentication_token
 from .bot_config import BotConfig
@@ -178,32 +177,15 @@ class BlazeClient:
         }
         return await self._send_raw(msg)
 
-    async def send_message(
-        self,
-        msg_data_obj: dict,
-        conversation_id: str,
-        message_id=None,
-        recipient_id=None,
-        quote_message_id=None,
-    ):
+    async def send_message(self, message: dict):
         """
-        - msg_data_obj, use types.message.pack_message() to make it
+        - message, use types.message.pack_message() to make it
         """
-
-        # recipient_id = to_user_id
-        msg = pack_message(
-            msg_data_obj,
-            conversation_id,
-            recipient_id,
-            message_id,
-            None,  # representative_id
-            quote_message_id,
-        )
 
         raw_msg = {
             "id": str(uuid.uuid4()),
             "action": "CREATE_MESSAGE",
-            "params": msg,
+            "params": message,
         }
         await self._send_raw(raw_msg)
         return
