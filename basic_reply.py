@@ -1,4 +1,5 @@
 from mixinsdk.types.message import pack_button
+from mixinsdk.types.messenger_schema import pack_input_action
 from mixinsdk.constants import BUTTON_COLORS
 from thisbot.types import MessageUser
 from thisbot.init import mixin_bot_config
@@ -17,10 +18,8 @@ def get_unknown_command(cmd: str):
 
 
 def get_button_of_help(msguser: MessageUser):
-    action = "input:"
-    if msguser.is_group:
-        action += f"@{mixin_bot_config.mixin_id} "
-    action += "help"
+    mixin_number = None if not msguser.is_group else mixin_bot_config.mixin_id
+    action = pack_input_action("help", mixin_number)
     pld = pack_button("Help", action, BUTTON_COLORS[7])
     return pld
 
@@ -33,5 +32,6 @@ def get_help_doc():
     text += "* `user`, show your mixin network user id\n"
     text += "* `conv`, show current conversation id\n"
     text += "* `asset <symbol>`, search asset by symbol. e.g. `asset btc`\n"
-    text += "* `wiki <title>`, search wikipedia"
+    text += "* `wiki <title>`, search wikipedia\n"
+    text += "* `size <item> <model>`, query size of Paper, iPhone, etc.\n"
     return text

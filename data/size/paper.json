@@ -1,0 +1,171 @@
+[
+    {
+        "model": "4A0",
+        "unit": {
+            "mm": {
+                "width": 1682,
+                "height": 2378
+            },
+            "inch": {
+                "width": 66.2,
+                "height": 93.6
+            }
+        }
+    },
+    {
+        "model": "2A0",
+        "unit": {
+            "mm": {
+                "width": 1189,
+                "height": 1682
+            },
+            "inch": {
+                "width": 46.8,
+                "height": 66.2
+            }
+        }
+    },
+    {
+        "model": "A0",
+        "unit": {
+            "mm": {
+                "width": 841,
+                "height": 1189
+            },
+            "inch": {
+                "width": 33.1,
+                "height": 46.8
+            }
+        }
+    },
+    {
+        "model": "A1",
+        "unit": {
+            "mm": {
+                "width": 594,
+                "height": 841
+            },
+            "inch": {
+                "width": 23.4,
+                "height": 33.1
+            }
+        }
+    },
+    {
+        "model": "A2",
+        "unit": {
+            "mm": {
+                "width": 420,
+                "height": 594
+            },
+            "inch": {
+                "width": 16.5,
+                "height": 23.4
+            }
+        }
+    },
+    {
+        "model": "A3",
+        "unit": {
+            "mm": {
+                "width": 297,
+                "height": 420
+            },
+            "inch": {
+                "width": 11.7,
+                "height": 16.5
+            }
+        }
+    },
+    {
+        "model": "A4",
+        "unit": {
+            "mm": {
+                "width": 210,
+                "height": 297
+            },
+            "inch": {
+                "width": 8.3,
+                "height": 11.7
+            }
+        }
+    },
+    {
+        "model": "A5",
+        "unit": {
+            "mm": {
+                "width": 148,
+                "height": 210
+            },
+            "inch": {
+                "width": 5.8,
+                "height": 8.3
+            }
+        }
+    },
+    {
+        "model": "A6",
+        "unit": {
+            "mm": {
+                "width": 105,
+                "height": 148
+            },
+            "inch": {
+                "width": 4.1,
+                "height": 5.8
+            }
+        }
+    },
+    {
+        "model": "A7",
+        "unit": {
+            "mm": {
+                "width": 74,
+                "height": 105
+            },
+            "inch": {
+                "width": 2.9,
+                "height": 4.1
+            }
+        }
+    },
+    {
+        "model": "A8",
+        "unit": {
+            "mm": {
+                "width": 52,
+                "height": 74
+            },
+            "inch": {
+                "width": 2.0,
+                "height": 2.9
+            }
+        }
+    },
+    {
+        "model": "A9",
+        "unit": {
+            "mm": {
+                "width": 37,
+                "height": 52
+            },
+            "inch": {
+                "width": 1.5,
+                "height": 2.0
+            }
+        }
+    },
+    {
+        "model": "A10",
+        "unit": {
+            "mm": {
+                "width": 26,
+                "height": 37
+            },
+            "inch": {
+                "width": 1.0,
+                "height": 1.5
+            }
+        }
+    }
+]

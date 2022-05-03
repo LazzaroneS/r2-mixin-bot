@@ -1,7 +1,11 @@
 from commander.types import CommandContext
-from mixinsdk.types.message import (pack_button, pack_button_group_data,
-                                    pack_message, pack_post_data,
-                                    pack_text_data)
+from mixinsdk.types.message import (
+    pack_button,
+    pack_button_group_data,
+    pack_message,
+    pack_post_data,
+    pack_text_data,
+)
 
 
 def parse_process(text: str):
@@ -74,7 +78,6 @@ def parse_arguments(args: list, option_name_map: list = {}):
 
 
 def add_response_text_message(ctx: CommandContext, text):
-    text = f"{ctx.cur_prog_name}: {text}"
     msg = pack_message(pack_text_data(text), ctx.msgview.conversation_id)
     ctx.replying_msgs.append(msg)
 

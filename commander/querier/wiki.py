@@ -8,6 +8,8 @@ from mixinsdk.constants import BUTTON_COLORS
 from pkgs.google_translator import translater
 from pkgs.wikipedia import query as wiki_query
 from pkgs.wikipedia.constants import PAGE_PROPS as PAGE_PROPS
+from mixinsdk.types.messenger_schema import pack_input_action
+from thisbot.init import mixin_bot_config
 
 from ..methods import (
     add_response_buttons_message,
@@ -19,16 +21,22 @@ from ..methods import (
 
 def get_doc():
     return """
-Search Wikipedia
+### Command `wiki`
+Search wikipedia.
 
-`wiki <title> [-l|--lang]`
-`wiki page <pageid> [-l|--lang]`
+### Examples:
+**`wiki apple`**
+**`wiki 苹果`**
 
--l,-lang: set language
-    - lang=zh ,set language as 中文
-    - lang=en ,set language as English
+### Syntax:
+**`wiki <title> [-l|--lang]`**
+**`wiki page <pageid> [-l|--lang]`**
 
-Example: `wiki apple`, `wiki 19450 -l=zh`
+### Options:
+- `-h`: show help
+- `-l,-lang`: set language
+    `-lang=zh` ,set language as 中文
+    `-lang=en` ,set language as English
     """
 
 
@@ -41,7 +49,9 @@ async def handle(ctx: CommandContext, args):
         return
 
     if not actions:
-        raise CommandError(ctx.cur_prog_name, "missing sub-command or title")
+        add_response_text_message(ctx, "✗ wiki: No action")
+        add_response_markdown_message(ctx, get_doc())
+        return
 
     if len(actions) == 1:
         sub_cmd = "search"
@@ -67,8 +77,13 @@ def search_title(ctx: CommandContext, title, opt_lang):
         raise CommandError(ctx.cur_prog_name, rsp.get("error"))
     found_pages = rsp.get("data", [])
     if not found_pages:
-        add_response_text_message(ctx, f"No result of {title}")
+        add_response_text_message(ctx, f"wiki: No result of {title}")
         return
+
+    # for pack button
+    mixin_number = None
+    if ctx.msguser.is_group:
+        mixin_number = mixin_bot_config.mixin_id
 
     # [{ns, title, pageid, size, wordcount, snippet, timestamp}]
     if len(found_pages) == 1:
@@ -80,7 +95,7 @@ def search_title(ctx: CommandContext, title, opt_lang):
         for page in found_pages:
             title = page.get("title")
             pageid = page.get("pageid")
-            action = f'input:wiki page "{pageid}" -l={lang}'
+            action = pack_input_action(f'wiki page "{pageid}" -l={lang}', mixin_number)
             button_tuples.append((title, action, BUTTON_COLORS[3]))
 
         add_response_buttons_message(ctx, button_tuples)
@@ -101,7 +116,7 @@ def query_page(ctx: CommandContext, pageid: str, opt_lang: str):
     description = data.get("description")
 
     if not title:
-        add_response_text_message(ctx, f"Not found page: {title}")
+        add_response_text_message(ctx, f"wiki: Not found page: {title}")
         return
 
     # html to markdown
@@ -114,7 +129,5 @@ def query_page(ctx: CommandContext, pageid: str, opt_lang: str):
 
 
 def get_lang(text: str):
-    # lang = lang_detect(text).split("-")[0]
     lang = translater.detect(text)[:2]
-    print(lang)
     return lang

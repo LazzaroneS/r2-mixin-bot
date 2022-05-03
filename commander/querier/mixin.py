@@ -4,9 +4,12 @@ from commander.types import CommandContext, CommandError
 from mixinsdk.types.message import pack_message, pack_post_data, pack_text_data
 from thisbot.init import mixin_client
 
-from ..methods import (add_response_buttons_message,
-                       add_response_markdown_message,
-                       add_response_text_message, parse_arguments)
+from ..methods import (
+    add_response_buttons_message,
+    add_response_markdown_message,
+    add_response_text_message,
+    parse_arguments,
+)
 
 
 def get_asset_doc():
@@ -50,7 +53,7 @@ def query_mixin_asset_by_symbol(symbol: str, opt_no_table: bool):
     if not assets:
         return None
     # render
-    markdown = f"Result assets of query symbol: **{symbol.upper()}**\n"
+    markdown = f"Mixin Assets of query symbol: **{symbol.upper()}**\n"
     if not opt_no_table:
         markdown += "\n|Icon|Symbol|Name|Asset ID|Price in USD|Capitalization\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
         for item in assets:

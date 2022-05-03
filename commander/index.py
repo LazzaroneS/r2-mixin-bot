@@ -50,13 +50,11 @@ def select_program(prog_name: str):
     if prog_name in ["asset"]:
         return querier.mixin.asset
 
-    # wikipedia
     if prog_name in ["wiki", "wikipedia"]:
         return querier.wiki.handle
 
+    if prog_name in ["size"]:
+        return querier.size.handle
+
     # else
     return querier.oogway.command_not_found
-
-    # if cmd in ["oogway", "master"]:
-    #     await send_text_to_user(reply_template.master_pearls(), msgview.conversation_id)
-    #     return

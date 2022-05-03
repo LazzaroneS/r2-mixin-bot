@@ -9,3 +9,4 @@ dacite
 
 # for querier
 markdownify
+ijson

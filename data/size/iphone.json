@@ -1,0 +1,308 @@
+[
+    {
+        "model": "iPhone 13 Pro Max",
+        "display": {
+            "size": "6.7-inch",
+            "type": "OLED"
+        },
+        "dimensions": "160.8 x 78.1 x 7.65mm",
+        "weight": "238g"
+    },
+    {
+        "model": "iPhone 13 Pro",
+        "display": {
+            "size": "6.1-inch",
+            "type": "OLED"
+        },
+        "dimensions": "146.7 x 71.5 x 7.65mm",
+        "weight": "203g"
+    },
+    {
+        "model": "iPhone 13",
+        "display": {
+            "size": "6.1-inch",
+            "type": "OLED"
+        },
+        "dimensions": "146.7 x 71.5 x 7.65mm",
+        "weight": "173g"
+    },
+    {
+        "model": "iPhone 12 Pro Max",
+        "display": {
+            "size": "6.7-inch",
+            "type": "OLED"
+        },
+        "dimensions": "160.8 x 78.1 x 7.4mm",
+        "weight": "226g"
+    },
+    {
+        "model": "iPhone 12 Pro",
+        "display": {
+            "size": "6.1-inch",
+            "type": "OLED"
+        },
+        "dimensions": "146.7 x 71.5 x 7.4mm",
+        "weight": "187g"
+    },
+    {
+        "model": "iPhone 12",
+        "display": {
+            "size": "6.1-inch",
+            "type": "OLED"
+        },
+        "dimensions": "146.7 x 71.5 x 7.4mm",
+        "weight": "162g"
+    },
+    {
+        "model": "iPhone 11 Pro Max",
+        "display": {
+            "size": "6.5-inch",
+            "type": "OLED"
+        },
+        "dimensions": "158 x 77.8 x 8.1mm",
+        "weight": "226g"
+    },
+    {
+        "model": "iPhone 11",
+        "display": {
+            "size": "6.1-inch",
+            "type": "LCD"
+        },
+        "dimensions": "150.9 x 75.7 x 8.3mm",
+        "weight": "194g"
+    },
+    {
+        "model": "iPhone XS Max",
+        "display": {
+            "size": "6.5-inch",
+            "type": "OLED"
+        },
+        "dimensions": "157.5 x 77.4 x 7.7 mm",
+        "weight": "208g"
+    },
+    {
+        "model": "iPhone XR",
+        "display": {
+            "size": "6.1-inch",
+            "type": "LCD"
+        },
+        "dimensions": "150.9 x 75.7 x 8.3 mm",
+        "weight": "194g"
+    },
+    {
+        "model": "iPhone 13 Mini",
+        "display": {
+            "size": "5.4-inch",
+            "type": "OLED"
+        },
+        "dimensions": "131.5 x 64.2 x 7.65mm",
+        "weight": "140g"
+    },
+    {
+        "model": "iPhone 12 Mini",
+        "display": {
+            "size": "5.4-inch",
+            "type": "OLED"
+        },
+        "dimensions": "131.5 x 64.2 x 7.4mm",
+        "weight": "133g"
+    },
+    {
+        "model": "iPhone 11 Pro",
+        "display": {
+            "size": "5.8-inch",
+            "type": "OLED"
+        },
+        "dimensions": "144 x 71.4 x 8.1mm",
+        "weight": "188g"
+    },
+    {
+        "model": "iPhone XS",
+        "display": {
+            "size": "5.8-inch",
+            "type": "OLED"
+        },
+        "dimensions": "143.6 x 70.9 x 7.7mm",
+        "weight": "177g"
+    },
+    {
+        "model": "iPhone X",
+        "display": {
+            "size": "5.8-inch",
+            "type": "OLED"
+        },
+        "dimensions": "143.6 x 70.9 x 7.7mm",
+        "weight": "174g"
+    },
+    {
+        "model": "iPhone 8 Plus",
+        "display": {
+            "size": "5.5-inch",
+            "type": "LCD"
+        },
+        "dimensions": "158.4 x 78.1 x 7.5 mm",
+        "weight": "202g"
+    },
+    {
+        "model": "iPhone 7 Plus",
+        "display": {
+            "size": "5.5-inch",
+            "type": "LCD"
+        },
+        "dimensions": "158.2 x 77.9 x 7.3mm",
+        "weight": "188g"
+    },
+    {
+        "model": "iPhone 6S Plus",
+        "display": {
+            "size": "5.5-inch",
+            "type": "LCD"
+        },
+        "dimensions": "158.2 x 77.9 x 7.3mm",
+        "weight": "192g"
+    },
+    {
+        "model": "iPhone 6 Plus",
+        "display": {
+            "size": "5.5-inch",
+            "type": "LCD"
+        },
+        "dimensions": "158.1 x 77.8 x 7.1mm",
+        "weight": "143g"
+    },
+    {
+        "model": "iPhone SE (2022)",
+        "display": {
+            "size": "4.7-inch",
+            "type": "LCD"
+        },
+        "dimensions": "138.4 x 67.3 x 7.3mm",
+        "weight": "144g"
+    },
+    {
+        "model": "iPhone SE (2020)",
+        "display": {
+            "size": "4.7-inch",
+            "type": "LCD"
+        },
+        "dimensions": "138.4 x 67.3 x 7.3mm",
+        "weight": "148g"
+    },
+    {
+        "model": "iPhone 8",
+        "display": {
+            "size": "4.7-inch",
+            "type": "LCD"
+        },
+        "dimensions": "138.4 x 67.3 x 7.3mm",
+        "weight": "148g"
+    },
+    {
+        "model": "iPhone 7",
+        "display": {
+            "size": "4.7-inch",
+            "type": "LCD"
+        },
+        "dimensions": "138.3 x 67.1 x 7.1mm",
+        "weight": "138g"
+    },
+    {
+        "model": "iPhone 6S",
+        "display": {
+            "size": "4.7-inch",
+            "type": "LCD"
+        },
+        "dimensions": "138.3 x 67.1 x 7.1mm",
+        "weight": "143g"
+    },
+    {
+        "model": "iPhone 6",
+        "display": {
+            "size": "4.7-inch",
+            "type": "LCD"
+        },
+        "dimensions": "138.1 x 67 x 6.9mm",
+        "weight": "129g"
+    },
+    {
+        "model": "iPhone SE (2016)",
+        "display": {
+            "size": "4.0-inch",
+            "type": "LCD"
+        },
+        "dimensions": "123.8 x 58.6 x 7.6mm",
+        "weight": "113g"
+    },
+    {
+        "model": "iPhone 5S",
+        "display": {
+            "size": "4.0-inch",
+            "type": "LCD"
+        },
+        "dimensions": "123.8 x 58.6 x 7.6mm",
+        "weight": "112g"
+    },
+    {
+        "model": "iPhone 5C",
+        "display": {
+            "size": "4.0-inch",
+            "type": "LCD"
+        },
+        "dimensions": "124.4 x 59.2 x 9mm",
+        "weight": "132g"
+    },
+    {
+        "model": "iPhone 5",
+        "display": {
+            "size": "4.0-inch",
+            "type": "LCD"
+        },
+        "dimensions": "123.8 x 58.6 x 7.6mm",
+        "weight": "112g"
+    },
+    {
+        "model": "iPhone 4S",
+        "display": {
+            "size": "3.5-inch",
+            "type": "LCD"
+        },
+        "dimensions": "115.2 x 58.6 x 9.3mm",
+        "weight": "140g"
+    },
+    {
+        "model": "iPhone 4",
+        "display": {
+            "size": "3.5-inch",
+            "type": "LCD"
+        },
+        "dimensions": "115.2 x 58.6 x 9.3mm",
+        "weight": "137g"
+    },
+    {
+        "model": "iPhone 3GS",
+        "display": {
+            "size": "3.5-inch",
+            "type": "TFT"
+        },
+        "dimensions": "115.5 x 62.1 x 12.3mm",
+        "weight": "135g"
+    },
+    {
+        "model": "iPhone 3G",
+        "display": {
+            "size": "3.5-inch",
+            "type": "TFT"
+        },
+        "dimensions": "115.5 x 62.1 x 12.3mm",
+        "weight": "133g"
+    },
+    {
+        "model": "iPhone (original)",
+        "display": {
+            "size": "3.5-inch",
+            "type": "TFT"
+        },
+        "dimensions": "115 x 61 x 11.6mm",
+        "weight": "135g"
+    }
+]

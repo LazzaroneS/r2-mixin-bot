@@ -1,11 +1,7 @@
 **/.git/
+**/__pycache__/
 **/.DS_Store
 
 **/.vscode/
-**/__pycache__/
 
-**/tests/
-**/test.*
 **/tmp.*
-
-data/
