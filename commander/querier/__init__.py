@@ -1,1 +1,1 @@
-from . import mixin, oogway, wiki, size
+from . import mixin, oogway, wiki, size, translate

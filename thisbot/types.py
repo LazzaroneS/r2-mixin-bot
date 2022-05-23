@@ -1,11 +1,11 @@
 from mixinsdk.clients.blaze_client import BlazeClient
-from mixinsdk.clients.http_client import HttpClient_BotAuth, HttpClient_WithoutAuth
+from mixinsdk.clients.http_client import HttpClient_AppAuth, HttpClient_WithoutAuth
 
 
 class MixinBotClient:
     def __init__(self):
         self.blaze: BlazeClient = None
-        self.http: HttpClient_BotAuth = None
+        self.http: HttpClient_AppAuth = None
         self.noauth: HttpClient_WithoutAuth = None
 
 

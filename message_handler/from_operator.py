@@ -1,9 +1,9 @@
-from thisbot.init import operation
 from mixinsdk.types.message import MessageView
+from thisbot.init import operation
 from thisbot.types import MessageUser
 
 
-async def handle_command(msguser: MessageUser, msgview: MessageView):
+def handle_command(msguser: MessageUser, msgview: MessageView):
     if msguser.is_group:
         return  # ignore command from group
     if not operation.operator_user_id:

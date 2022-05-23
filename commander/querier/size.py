@@ -1,5 +1,3 @@
-import logging
-
 import ijson
 
 from commander.types import CommandContext
@@ -36,7 +34,7 @@ Query size of Paper, iPhone.
     """
 
 
-async def handle(ctx: CommandContext, args):
+def handle(ctx: CommandContext, args):
     # parser arguments
     actions, options = parse_arguments(args, {})
 

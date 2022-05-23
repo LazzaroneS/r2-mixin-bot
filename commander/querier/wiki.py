@@ -5,7 +5,7 @@ from markdownify import markdownify
 
 from commander.types import CommandContext, CommandError
 from mixinsdk.constants import BUTTON_COLORS
-from pkgs.google_translator import translater
+from pkgs.google import translator
 from pkgs.wikipedia import query as wiki_query
 from pkgs.wikipedia.constants import PAGE_PROPS as PAGE_PROPS
 from mixinsdk.types.messenger_schema import pack_input_action
@@ -40,7 +40,7 @@ Search wikipedia.
     """
 
 
-async def handle(ctx: CommandContext, args):
+def handle(ctx: CommandContext, args):
     # parser arguments
     actions, options = parse_arguments(args, {"lang": ["l"]})
 
@@ -129,5 +129,5 @@ def query_page(ctx: CommandContext, pageid: str, opt_lang: str):
 
 
 def get_lang(text: str):
-    lang = translater.detect(text)[:2]
+    lang = translator.detect(text)[:2]
     return lang

@@ -22,7 +22,7 @@ Example: `asset btc`
     """
 
 
-async def asset(ctx: CommandContext, args):
+def asset(ctx: CommandContext, args):
     # parser arguments
     actions, options = parse_arguments(args, {"no-table": ["nt"]})
 

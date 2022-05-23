@@ -1,18 +1,13 @@
 import logging
 
-from mixinsdk.types.message import (
-    pack_button_group_data,
-    pack_message,
-    pack_post_data,
-    pack_text_data,
-)
+from mixinsdk.types.message import pack_message, pack_text_data
 
 from . import querier
 from .methods import parse_process
 from .types import CommandContext, CommandError
 
 
-async def handle(ctx: CommandContext, command: str):
+def handle(ctx: CommandContext, command: str):
     processes = command.split("|")
 
     try:
@@ -20,7 +15,7 @@ async def handle(ctx: CommandContext, command: str):
             prog_name, args = parse_process(prc)
             ctx.cur_prog_name = prog_name
             program = select_program(prog_name)
-            ctx.pipe_data = await program(ctx, args)  # execute program to process
+            ctx.pipe_data = program(ctx, args)  # execute program to process
     except CommandError as e:
         text = f"✗ Command error: {e.prog_name} : {e.message}"
         msg = pack_message(pack_text_data(text), ctx.msgview.conversation_id)
@@ -37,6 +32,8 @@ def select_program(prog_name: str):
     # oogway
     if prog_name in ["hi", "hello", "你好"]:
         return querier.oogway.hi
+    if prog_name in ["source", "源码"]:
+        return querier.oogway.get_source_code
     if prog_name in ["help", "帮助"]:
         return querier.oogway.help
     if prog_name in ["user"]:
@@ -45,6 +42,8 @@ def select_program(prog_name: str):
         return querier.oogway.current_conversation_info
     if prog_name in ["oogway", "master"]:
         return querier.oogway.master_pearls
+    if prog_name in ["translate", "tr", "翻译", "翻"]:
+        return querier.translate.handle
 
     # mixin
     if prog_name in ["asset"]:
